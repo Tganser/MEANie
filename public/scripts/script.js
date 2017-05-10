@@ -5,6 +5,8 @@ var myApp=angular.module( 'myApp', [] );
 myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
   var vm = this;
 
+  var records = [];
+
   vm.addRecord = function(){
     console.log("in add record route on client");
 
@@ -34,6 +36,7 @@ myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
       url: '/getRecords',
     }).then( function( response ){
       console.log(response.data);
+      records.push(response.data);
       vm.allTheRecords = response.data;
       console.log( vm.allTheRecords );
     // }), function myError( response ){

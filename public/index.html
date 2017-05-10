@@ -19,6 +19,8 @@
         <div ng-repeat='thing in wmp.allTheRecords'>
           <h3>{{thing.name}}</h3>
           <h6>{{thing.location}}</h6>
+          <button ng-click='wmp.deleteRecord(thing._id)'>Delete</button>
+
 
         </div>
       </div>

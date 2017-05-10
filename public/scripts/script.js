@@ -21,6 +21,7 @@ myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
       data: objectToSend
     }).then ( function(response){
       console.log(response);
+        vm.getRecords();
     });
 
     vm.nameIn ='';
@@ -48,5 +49,17 @@ myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
 
   vm.getRecords();
 
+  vm.deleteRecord = function(id){
+    console.log("in delete record route");
+
+    $http({
+      method: 'DELETE',
+      url: '/deleteRecord/'+id,
+    }).then( function( response ){
+      console.log(response);
+      vm.getRecords();
+      // console.log(response.id);
+    });
+  };
 
 }]);

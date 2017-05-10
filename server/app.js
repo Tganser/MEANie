@@ -54,3 +54,16 @@ app.post( '/testPost', function( req, res ){
     res.sendStatus(200);
   });
   });
+
+
+app.delete( '/deleteRecord/:id', function(req, res){
+  console.log('in delete record route on server');
+  console.log(req.params.id);
+  ourModel.remove({ _id : req.params.id}).then( function(){
+    res.send(200);
+  }
+
+  );
+
+}
+);

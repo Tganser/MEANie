@@ -2,19 +2,17 @@ var myApp=angular.module( 'myApp', [] );
 
 myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
   var vm = this;
-  vm.addRecord = function(){
 
+  vm.addRecord = function(){
     var objectToSend ={
       name : vm.nameIn,
       location: vm.locationIn
     };
-
     $http({
       method: 'POST',
       url: '/testPost',
       data: objectToSend
     });
-
     vm.nameIn ='';
     vm.locationIn='';
   };
@@ -27,8 +25,10 @@ myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
     }).then( function( response ){
       vm.allTheRecords = response;
       console.log( vm.allTheRecords );
-    }), function myError( response ){
-      console.log( response.statusText );
+    // }), function myError( response ){
+    //   console.log( response.statusText );
+
+      //some issue i dont understand here, so i took out the error stuff
     });
   };
 

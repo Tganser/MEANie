@@ -1,9 +1,12 @@
+console.log("js sourced");
+
 var myApp=angular.module( 'myApp', [] );
 
 myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
   var vm = this;
 
   vm.addRecord = function(){
+    console.log("in add record route on client");
     var objectToSend ={
       name : vm.nameIn,
       location: vm.locationIn
@@ -19,6 +22,7 @@ myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
 
 
   vm.getRecords = function(){
+    console.log("in getrecords route on client");
     $http({
       method: 'GET',
       url: '/getRecords',
@@ -31,5 +35,8 @@ myApp.controller( 'WhereMyPeeps', [ '$http', function( $http ){
       //some issue i dont understand here, so i took out the error stuff
     });
   };
+
+  vm.getRecords();
+
 
 }]);
